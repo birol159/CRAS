@@ -1,0 +1,5 @@
+veritabanı ismi => brlcglrx_cras
+Müdür kullanici => a : a 
+şef kullanici => şef : 123
+garson kullanici => garson : 123
+yetkili kullanici => admin : 1234
