@@ -532,7 +532,7 @@ namespace CRAS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lütfen Tekrar Seçim Yapınız." + ex.Message);
+                MessageBox.Show("Lütfen Tekrar Seçim Yapınız."+ex.Message);
                 genel.sqlgonder.Parameters.Clear();
             }
         }

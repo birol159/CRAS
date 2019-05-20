@@ -10,12 +10,7 @@ namespace CRAS
     {
         #region Connection / Command
 
-        private static string vt_server = Properties.Settings.Default.server;
-        private static string vt_name = Properties.Settings.Default.vt_name;
-        private static string vt_uid = Properties.Settings.Default.vt_uid;
-        private static string vt_pwd = Properties.Settings.Default.vt_pwd;
-        private static string connectionString = "Server=" + vt_server + ";" + "Database=" + vt_name + ";" + "Uid=" + vt_uid + ";" + "Pwd=" + vt_pwd + ";" + "SslMode=none;Encrypt=false;charset=utf8;";
-        public MySqlConnection baglanti = new MySqlConnection(connectionString);
+        public MySqlConnection baglanti = new MySqlConnection("Server=localhost;Database=brlcglrx_cras;Uid=root;Pwd=12345678;SslMode=none;Encrypt=false;charset=utf8;");
 
         public MySqlCommand sqlgonder = new MySqlCommand();
 
@@ -77,7 +72,7 @@ namespace CRAS
             baglanti_ac();
             sqlgonder.Connection = baglanti;
             sqlgonder.CommandText = "Select * from kullanici where kullanici_adi=@kadi";
-            sqlgonder.Parameters.AddWithValue("@kadi", kullanici);
+            sqlgonder.Parameters.AddWithValue("@kadi",kullanici);
             MySqlDataReader oku = sqlgonder.ExecuteReader();
             sqlgonder.Parameters.Clear();
             while (oku.Read())
@@ -319,18 +314,20 @@ namespace CRAS
 
         #endregion Yetki Sistemi
 
-        public void logEkle(string ex, string aciklama)
+        public void logEkle(string ex,string aciklama)
         {
             string mesaj = ex;
             baglanti_ac();
             sqlgonder.Connection = baglanti;
             sqlgonder.CommandText = "INSERT INTO hata_loglari (log_mesaj,log_tarih,log_form_kisim) Values (@mesaj,@tarih,@aciklama)";
-            sqlgonder.Parameters.AddWithValue("@mesaj", mesaj);
+            sqlgonder.Parameters.AddWithValue("@mesaj",mesaj);
             sqlgonder.Parameters.AddWithValue("@tarih", tarih_uzun());
             sqlgonder.Parameters.AddWithValue("@aciklama", aciklama);
             sqlgonder.ExecuteNonQuery();
             sqlgonder.Parameters.Clear();
             baglanti_kapat();
+
+
         }
     }
 }

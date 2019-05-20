@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace CRAS
@@ -15,7 +14,7 @@ namespace CRAS
 
         public static string kullanici_adi = null;
         private cGenel genel = new cGenel();
-        
+
         #endregion Properties
 
         #region Giris Yap
@@ -52,7 +51,5 @@ namespace CRAS
         }
 
         #endregion Cikis Yap
-
-        
     }
 }

@@ -85,7 +85,7 @@ namespace CRAS
             btnSiparis.Enabled = false;
             btnMasaAktar.Enabled = false;
             btnIade.Enabled = false;
-            genel.yetkilendirme(frmGiris.kullanici_adi, btnIade, btnMasaAktar, btnAyarlar, btnOdeme);
+            genel.yetkilendirme(frmGiris.kullanici_adi, btnIade, btnMasaAktar, btnAyarlar,btnOdeme);
         }
 
         #endregion frmLoad
@@ -143,9 +143,11 @@ namespace CRAS
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Bir hata meydana geldi lütfen yöneticinize başvurunuz.");
-                genel.logEkle(ex.Message.ToString(), "Button iade kısmı frmMenu btnIade_click ");
+                genel.logEkle(ex.Message.ToString(),"Button iade kısmı frmMenu btnIade_click ");
             }
+            
         }
 
         #endregion Urun Iade
@@ -178,7 +180,7 @@ namespace CRAS
             catch (Exception ex)
             {
                 MessageBox.Show("Lütfen Tekrar Tıklayınız...");
-                genel.logEkle(ex.Message.ToString(), "Hesap getir listview frmMenu lvMasalar_MouseClick");
+                genel.logEkle(ex.Message.ToString(),"Hesap getir listview frmMenu lvMasalar_MouseClick");
             }
         }
 
@@ -199,6 +201,7 @@ namespace CRAS
             {
                 MessageBox.Show("Lütfen tekrar tıklayınız...");
             }
+            
         }
 
         #endregion İade button kontrolü

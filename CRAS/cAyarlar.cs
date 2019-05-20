@@ -362,10 +362,10 @@ namespace CRAS
             genel.baglanti_kapat();
         }
 
-        public void kullaniciSil(TextBox txKullaniciAdiSil, ListView lvKullanicilar, string giris_kullanicisi)
+        public void kullaniciSil(TextBox txKullaniciAdiSil, ListView lvKullanicilar,string giris_kullanicisi)
         {
             genel.baglanti_ac();
-            if (giris_kullanicisi != frmGiris.kullanici_adi) // giris yapilan kullanici kontrolu yapilir
+            if (giris_kullanicisi != frmGiris.kullanici_adi ) // giris yapilan kullanici kontrolu yapilir
             {
                 string kullanici_adi = txKullaniciAdiSil.Text;
                 genel.sqlgonder.Connection = genel.baglanti;
@@ -380,7 +380,7 @@ namespace CRAS
             {
                 MessageBox.Show("Giriş Yapılan Kullanıcı Silinemez");
             }
-
+           
             genel.baglanti_kapat();
         }
 
