@@ -445,7 +445,7 @@ INSERT INTO `kullanici` (`kullanici_id`, `kullanici_adi`, `kullanici_sifre`, `ye
 (5, 'admin', '1234', 1, 1),
 (6, 'birol', '123', 1, 1),
 (9, 'garson', '123', 2, 1),
-(10, 'şef', '123', 1, 1),
+(10, 'sef', '123', 1, 1),
 (11, 'demo', 'demo', 1, 0),
 (12, 'q23', 'q23', 3, 0),
 (13, 'a', 'a', 1, 1);
