@@ -294,12 +294,12 @@ namespace CRAS
             }
             catch (Exception ex)
             {
-                if(ex is FormatException)
+                if (ex is FormatException)
                 {
                     MessageBox.Show("Girilen değer hatali girilmiştir lütfen tekrar deneyiniz.");
                 }
                 MessageBox.Show("Bir hata meydana geldi lütfen yöneticinize başvurunuz.");
-                genel.logEkle(ex.Message.ToString(),"Ürün güncelleme frmAyarlar btnGuncelle_click"); 
+                genel.logEkle(ex.Message.ToString(), "Ürün güncelleme frmAyarlar btnGuncelle_click");
             }
         }
 
@@ -414,9 +414,9 @@ namespace CRAS
 
         private void btnKullaniciSil_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txKullaniciAdiSil.Text)) 
+            if (!string.IsNullOrWhiteSpace(txKullaniciAdiSil.Text))
             {
-                ayarlar.kullaniciSil(txKullaniciAdiSil, lvKullanicilar,frmGiris.kullanici_adi);
+                ayarlar.kullaniciSil(txKullaniciAdiSil, lvKullanicilar, frmGiris.kullanici_adi);
                 btnKullaniciSil.Enabled = false;
                 txKullaniciAdiSil.Clear();
                 kullanici_id = null;
@@ -770,43 +770,41 @@ namespace CRAS
 
         private void btnPersonelRapor_Click(object sender, EventArgs e)
         {
-            if (rdPersonelAylik.Checked == true || rdPersonelGunluk.Checked == true || rdPersonelHepsi.Checked == true && cbPersonel.SelectedIndex > -1 )
+            if (rdPersonelAylik.Checked == true || rdPersonelGunluk.Checked == true || rdPersonelHepsi.Checked == true && cbPersonel.SelectedIndex > -1)
             {
-               
-                    if (rdPersonelGunluk.Checked == true) // gunluk secildigi zaman
+                if (rdPersonelGunluk.Checked == true) // gunluk secildigi zaman
+                {
+                    if (rapor_cinsi == "MAS") // aktarmalar
                     {
-                        if (rapor_cinsi == "MAS") // aktarmalar
-                        {
-                            ayarlar.masaAktarmaGunluk(lvPersonelMasa, ay, gun, yil);
-                        }
-                        else // iadeler
-                        {
-                            ayarlar.iadeGunluk(lvPersonel_iade, ay, gun, yil);
-                        }
+                        ayarlar.masaAktarmaGunluk(lvPersonelMasa, ay, gun, yil);
                     }
-                    else if (rdPersonelAylik.Checked == true) // aylik secildigi zaman
+                    else // iadeler
                     {
-                        if (rapor_cinsi == "MAS") // aktarmalar
-                        {
-                            ayarlar.masaAktarmaAylik(lvPersonelMasa, ay, yil);
-                        }
-                        else // iadeler
-                        {
-                            ayarlar.iadeAylik(lvPersonel_iade, ay, yil);
-                        }
+                        ayarlar.iadeGunluk(lvPersonel_iade, ay, gun, yil);
                     }
-                    else if (rdPersonelHepsi.Checked == true) // hepsi secildigi zaman
+                }
+                else if (rdPersonelAylik.Checked == true) // aylik secildigi zaman
+                {
+                    if (rapor_cinsi == "MAS") // aktarmalar
                     {
-                        if (rapor_cinsi == "MAS") // aktarmalar
-                        {
-                            ayarlar.masaAktarmaHepsi(lvPersonelMasa);
-                        }
-                        else // iadeler
-                        {
-                            ayarlar.iadeHepsi(lvPersonel_iade);
-                        }
+                        ayarlar.masaAktarmaAylik(lvPersonelMasa, ay, yil);
                     }
-               
+                    else // iadeler
+                    {
+                        ayarlar.iadeAylik(lvPersonel_iade, ay, yil);
+                    }
+                }
+                else if (rdPersonelHepsi.Checked == true) // hepsi secildigi zaman
+                {
+                    if (rapor_cinsi == "MAS") // aktarmalar
+                    {
+                        ayarlar.masaAktarmaHepsi(lvPersonelMasa);
+                    }
+                    else // iadeler
+                    {
+                        ayarlar.iadeHepsi(lvPersonel_iade);
+                    }
+                }
             }
             else
             {
