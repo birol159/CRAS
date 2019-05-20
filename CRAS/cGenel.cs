@@ -10,7 +10,7 @@ namespace CRAS
     {
         #region Connection / Command
 
-        public MySqlConnection baglanti = new MySqlConnection("Server=localhost;Database=brlcglrx_cras;Uid=root;Pwd=;SslMode=none;Encrypt=false;charset=utf8;");
+        public MySqlConnection baglanti = new MySqlConnection("Server=localhost;Database=brlcglrx_cras;Uid=root;Pwd=12345678;SslMode=none;Encrypt=false;charset=utf8;");
 
         public MySqlCommand sqlgonder = new MySqlCommand();
 
