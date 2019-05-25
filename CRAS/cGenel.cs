@@ -42,7 +42,7 @@ namespace CRAS
         #endregion Connection / Command
 
         #region Giris Yapma
-
+        // giris verileri vtden kontrol edilir
         public bool cras_giris(string kulladi, string sifre)
         {
             baglanti_ac();
@@ -72,7 +72,7 @@ namespace CRAS
 
         public string personel_id(string kullanici)
         {
-            string personel_id = "";
+            string personel_id = null;
 
             baglanti_ac();
             sqlgonder.Connection = baglanti;
@@ -94,7 +94,7 @@ namespace CRAS
 
         public string masa_adi_bul(string masa_id)
         {
-            string masa_adi = "";
+            string masa_adi = null;
             baglanti_ac();
             sqlgonder.Connection = baglanti;
             sqlgonder.CommandText = "Select masa_adi from masalar where masa_id=" + masa_id;
@@ -110,7 +110,7 @@ namespace CRAS
         #endregion Masa Adi Bulma
 
         #region Hesap Kontrol
-
+        // Hesabin odenme durumu kontrol edilir
         public bool hesapKontrol(string masa_id)
         {
             baglanti_ac();
@@ -168,7 +168,6 @@ namespace CRAS
                 baglanti_kapat();
             }
         }
-
         public void masaGetir(ListView lvlMasalar, string masa_tur, string masa_id)
         {
             baglanti_ac();
@@ -258,7 +257,7 @@ namespace CRAS
         #endregion Tarih Fonksiyonları
 
         #region Yetki Sistemi
-
+        // yetki seviyesi vt'den cekilir
         public string yetki_seviyesi_bul(string yetki_id)
         {
             string yetki_seviyesi = null;
@@ -276,7 +275,7 @@ namespace CRAS
             sqlgonder.Parameters.Clear();
             return yetki_seviyesi;
         }
-
+        // yetki seviyesine gore menu duzenlenir
         public void yetkilendirme(string kullanici_adi, Button iade, Button aktar, Button ayarlar, Button odeme)
         {
             baglanti_ac();
@@ -318,7 +317,7 @@ namespace CRAS
         }
 
         #endregion Yetki Sistemi
-
+        // log ekleme
         public void logEkle(string ex, string aciklama)
         {
             string mesaj = ex;
